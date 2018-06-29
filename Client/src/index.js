@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Layout from './views/layout';
+import Post from './views/post';
+import Home from './views/home';
+import PostDetail from './views/post_detail';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
+import './css/import'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <Layout>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/post" component={Post} />
+        <Route path="/post-detail/:id" component={PostDetail} />
+        {/* <Route component={NotFoundPage} /> */}
+      </Switch>
+    </Layout>
+  </Router>,
+  document.getElementById('root'));
 registerServiceWorker();
