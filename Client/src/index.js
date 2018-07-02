@@ -7,8 +7,18 @@ import PostDetail from './views/post_detail';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 import './css/import'
+import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+import allReducers from './store/reducers'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+let store = createStore(allReducers);
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
+  <Provider store= {store} >
   <Router>
     <Layout>
       <Switch>
@@ -18,6 +28,7 @@ ReactDOM.render(
         {/* <Route component={NotFoundPage} /> */}
       </Switch>
     </Layout>
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
