@@ -15,7 +15,7 @@ import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 let store = createStore(allReducers, applyMiddleware(sagaMiddleware));
-
+sagaMiddleware.run(rootSaga)
 ReactDOM.render(
   <Provider store= {store} >
   <Router>
@@ -30,5 +30,4 @@ ReactDOM.render(
   </Router>
   </Provider>,
   document.getElementById('root'));
-  sagaMiddleware.run(rootSaga)
 registerServiceWorker();

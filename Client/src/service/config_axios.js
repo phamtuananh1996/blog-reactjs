@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-var host = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : ''
+var host = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : ''
 var version = 'v1'
 var type = 'api'
 var URL_API = host + '/' + type + '/' + version + '/'

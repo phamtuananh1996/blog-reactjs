@@ -5,6 +5,9 @@ import Action from '../../store/actions/post'
 
 class list_post extends Component {
   componentWillMount() {
+    // this.props.fetch()
+  }
+  componentDidMount() {
     this.props.fetch()
   }
   render() {
@@ -19,7 +22,7 @@ class list_post extends Component {
           {
             this.props.Posts.map((post,index)=>{
               return (
-                <PostItem post={post}/>
+                <PostItem post={post} key={post.id}/>
               )
             })
           }

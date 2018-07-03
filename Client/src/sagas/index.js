@@ -3,6 +3,6 @@ import {watchFetchPost} from './post/fetch'
 
 export default function* rootSaga() {
   yield all([
-    watchFetchPost
+    watchFetchPost()
   ])
 }
