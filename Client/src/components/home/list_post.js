@@ -4,6 +4,9 @@ import {connect} from 'react-redux'
 import Action from '../../store/actions/post'
 
 class list_post extends Component {
+  componentWillMount() {
+    this.props.fetch()
+  }
   render() {
     return (
       <div class="content-block-single">
@@ -52,6 +55,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     sort: (flag) => {
       dispatch(Action.sort(flag))
+    },
+    fetch: ()=>{
+      dispatch(Action.fetch())
     }
   }
 }

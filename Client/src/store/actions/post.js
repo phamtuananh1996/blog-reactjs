@@ -6,5 +6,18 @@ export default {
       type: Type.SORT,
       payload: flag
     }
+  },
+
+  fetch: ()=>{
+    return {
+      type: 'FETCH_POSTS'
+    }
+  },
+
+  fetchSuccessAction: (payload) => {
+    return {
+      type: 'FETCH_POSTS_SUCCESS',
+      payload
+    }
   }
 }

@@ -7,15 +7,14 @@ import PostDetail from './views/post_detail';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 import './css/import'
-import { createStore } from 'redux';
+import { createStore,applyMiddleware } from 'redux';
 import {Provider} from 'react-redux';
 import allReducers from './store/reducers'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
-let store = createStore(allReducers);
-sagaMiddleware.run(rootSaga)
+let store = createStore(allReducers, applyMiddleware(sagaMiddleware));
 
 ReactDOM.render(
   <Provider store= {store} >
@@ -31,4 +30,5 @@ ReactDOM.render(
   </Router>
   </Provider>,
   document.getElementById('root'));
+  sagaMiddleware.run(rootSaga)
 registerServiceWorker();
