@@ -10,13 +10,13 @@ export default {
 
   fetch: ()=>{
     return {
-      type: 'FETCH_POSTS'
+      type: Type.FETCH_POSTS
     }
   },
 
   fetchSuccessAction: (payload) => {
     return {
-      type: 'FETCH_POSTS_SUCCESS',
+      type: Type.FETCH_POSTS_SUCCESS,
       payload
     }
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class menu extends Component {
   render() {
@@ -15,7 +16,7 @@ class menu extends Component {
                   <button><i class="fa fa-search"></i></button>
                 </div>
                 <ul class="top-main-menu load-responsive" rel="Main Menu">
-                  <li><a href="index-2.html">Homepage</a></li>
+                  <li><Link to='/'>Homepage</Link></li>
                   <li><a href="blog.html"><span>Blog page</span></a>
                     <ul class="sub-menu">
                       <li><a href="blog2.html">Blog page #2</a></li>
